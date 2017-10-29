@@ -125,5 +125,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SamuraiApp.Domain\SamuraiApp.Domain.csproj">
+      <Project>{B21C7BC3-E624-4391-9439-73D5C4758383}</Project>
+      <Name>SamuraiApp.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
