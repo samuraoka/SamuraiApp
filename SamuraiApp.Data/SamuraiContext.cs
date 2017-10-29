@@ -19,6 +19,8 @@ namespace SamuraiApp.Data
     /// <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     /// https://stackoverflow.com/questions/45978173/system-valuetuple-version-0-0-0-0-required-for-add-migration-on-net-4-6-1-cla
     /// https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-entity-framework-core-2-0/
+    /// To Create or Update database, run following command in the Package Manager Console
+    /// PM> Update-Database -Context SamuraiContext -Project SamuraiApp.Data -StartupProject SamuraiApp.Data
     /// </summary>
     public class SamuraiContext : DbContext
     {
