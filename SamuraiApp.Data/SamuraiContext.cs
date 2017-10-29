@@ -7,6 +7,11 @@ namespace SamuraiApp.Data
     /// To create a data model, add following NuGet package using the below command in Package Manager
     /// PM> Install-Package Microsoft.EntityFrameworkCore.SqlServer -ProjectName SamuraiApp.Data -Version 2.0.0
     /// https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/
+    /// To create migration files, add following NuGet package using the below command in Package Manager
+    /// PM> Install-Package Microsoft.EntityFrameworkCore.Tools -ProjectName SamuraiApp.Data -Version 2.0.0
+    /// https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/
+    /// To get help messages, use a following command in Package Manager.
+    /// PM> get-help entityframeworkcore
     /// </summary>
     public class SamuraiContext : DbContext
     {
