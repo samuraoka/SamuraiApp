@@ -12,6 +12,13 @@ namespace SamuraiApp.Data
     /// https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/
     /// To get help messages, use a following command in Package Manager.
     /// PM> get-help entityframeworkcore
+    /// To add a new migration, execute a following command
+    /// PM> Add-Migration -Name init -Context SamuraiContext -Project SamuraiApp.Data -StartupProject SamuraiApp.Data
+    /// And if you have a error, try to add properties to the csproj file.
+    /// <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    /// <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    /// https://stackoverflow.com/questions/45978173/system-valuetuple-version-0-0-0-0-required-for-add-migration-on-net-4-6-1-cla
+    /// https://blogs.msdn.microsoft.com/dotnet/2017/08/14/announcing-entity-framework-core-2-0/
     /// </summary>
     public class SamuraiContext : DbContext
     {
