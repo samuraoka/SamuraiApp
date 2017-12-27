@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using SamuraiApp.Domain;
 
 namespace SamuraiApp.Data
@@ -28,6 +30,17 @@ namespace SamuraiApp.Data
     /// </summary>
     public class SamuraiContext : DbContext
     {
+
+        // Logging
+        // https://docs.microsoft.com/en-us/ef/core/miscellaneous/logging
+        //
+        // Microsoft.Extensions.Logging.Console
+        // https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/
+        // Install-Package Microsoft.Extensions.Logging.Console -ProjectName SamuraiApp.Data -Version 2.0.0
+        public static readonly LoggerFactory SamuraiLoggerFactory
+            = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
+
         public DbSet<Samurai> Samurais { get; set; }
         public DbSet<Battle> Battles { get; set; }
         public DbSet<Quote> Quotes { get; set; }
@@ -42,8 +55,16 @@ namespace SamuraiApp.Data
         /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;Database=SamuraiData;AttachDbFileName=E:\sato\MSSQLLocalDB\SamuraiData.mdf";
+            var connectionString = @"Server=(LocalDB)\MSSQLLocalDB;Integrated Security=true;Database=SamuraiData;AttachDbFileName=E:\sato\MSSQLLocalDB\SamuraiData\SamuraiData.mdf";
             optionsBuilder.UseSqlServer(connectionString);
+
+            // Logging
+            // https://docs.microsoft.com/en-us/ef/core/miscellaneous/logging
+            optionsBuilder.UseLoggerFactory(SamuraiLoggerFactory);
+            // Sensitive data logging is enabled.
+            // Log entries and exception messages may include sensitive application data,
+            // this mode should only be enabled during development.
+            optionsBuilder.EnableSensitiveDataLogging();
         }
 
         /// <summary>
